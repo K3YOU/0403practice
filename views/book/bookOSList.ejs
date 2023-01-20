@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div align="center">
+        <br><br>
+        <font size="5" color="#3a3a3a"><b>전체 도서</b></font>
+        <hr width="300px" color="#196ab3">
+        <br><br>
+
+        <table>
+            <% for(i=0;i<bookDB.length;i++) { var book = bookDB[i]  %>
+                <% if(i % 4 == 0) { %>
+                    <tr>
+                    <% } %>                
+
+                    <% if(book["bookCategory"]== "OS"){ %>
+
+                        <td>
+                            <p>
+                                <% if(book["bookStock"] > 0){ %>
+                                    <a href="bookinfo?bookNo=<%= book['bookNo'] %>">
+                                        <img alt ="book " src="<%= book['bookImage'] %>">
+                                    </a>
+                                <% } else { %>
+                                    <img alt ="book " src="<%= book['bookImage'] %>" style="opacity:20%">
+                                <% } %>
+                            </p>
+                            <p>
+                                <a> <%= book['bookName'] %></a>
+                            </p>
+                            <p>
+                                <a> <%=book['bookPrice']%> </a>
+                                ->
+                                <a><%=book[]%></a>
+
+                            </p>
+                            <p></p>
+
+                        </td>
+                    <%}%>
+
+
+
+                <% if(i % 4 == 3) { %>
+                    </tr>
+                    <%} %>                
+    
+
+
+
+            <% } %>
+
+        </table>
+
+    </div>
+</body>
+</html>
